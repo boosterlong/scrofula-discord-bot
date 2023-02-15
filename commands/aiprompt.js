@@ -9,7 +9,6 @@ module.exports = {
         .addStringOption(option => option.setName('prompt').setDescription('Prompt?')),
 
     async execute(interaction) {
-        const wait = require('node:timers/promises').setTimeout;
         const thePrompt = interaction.options.getString('prompt');
         await interaction.deferReply(`Prompt: ${thePrompt}`);
         const aiResponse = await prompt.getPromptResponse(thePrompt);
